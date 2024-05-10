@@ -1,0 +1,26 @@
+//spacing
+$base-spacing: 5px;
+$max-multiplier: 5;
+
+$spacies: ();
+
+@for $i from 0 through $max-multiplier {
+  $spacies: map-merge($spacies, (#{ $i }: $base-spacing * $i));
+}
+
+$spacies: map-merge($spacies, ('auto': auto));
+
+$property: 'm', 'p';
+$sides: '', 't', 'b', 'l', 'r', 'x', 'y';
+
+//grid
+$gutter-width: 24px;
+$grid-sum: 12;
+
+$breakpoints: (
+  '': false,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);

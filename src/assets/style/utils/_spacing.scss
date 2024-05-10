@@ -1,0 +1,61 @@
+@mixin generate($pro, $side, $spacValue) {
+  $directions: ("", "t", "b", "l", "r", "x", "y");
+  $suffixes: ("", "-top", "-bottom", "-left", "-right", "-x", "-y");
+  
+  @if $pro == "m" {
+    @each $dir, $suffix in zip($directions, $suffixes) {
+      @if $side == nth($dir, 1) {
+        @if $side == 'x' {
+          margin-left: $spacValue !important;
+          margin-right: $spacValue !important;
+        } @else if $side == 'y' {
+          margin-top: $spacValue !important;
+          margin-bottom: $spacValue !important;
+        } @else {
+          margin#{nth($suffix, 1)}: $spacValue !important;
+        }
+      }
+    }
+  }
+  @if $pro == "p" {
+    @each $dir, $suffix in zip($directions, $suffixes) {
+      @if $side == nth($dir, 1) {
+        @if $side == 'x' {
+          padding-left: $spacValue !important;
+          padding-right: $spacValue !important;
+        } @else if $side == 'y' {
+          padding-top: $spacValue !important;
+          padding-bottom: $spacValue !important;
+        } @else {
+          padding#{nth($suffix, 1)}: $spacValue !important;
+        }
+      }
+    }
+  }
+}
+
+@each $key, $value in $breakpoints {
+  @if not $value {
+    @each $pro in $property {
+      @each $side in $sides {
+        @each $spacKey, $spacValue in $spacies {
+          .#{$pro}#{$side}-#{$spacKey} {
+            @include generate($pro, $side, $spacValue);
+          }
+        }
+      }
+    }
+  } @else {
+    @media screen and (min-width: $value) {
+      @each $pro in $property {
+        @each $side in $sides {
+          @each $spacKey, $spacValue in $spacies {
+            .#{$pro}#{$side}-#{$key}-#{$spacKey} {
+              @include generate($pro, $side, $spacValue);
+            }
+          }
+        }
+      }
+    }
+  }
+}
