@@ -1,6 +1,70 @@
-.content {
-  background-image: url('../../images/logo192.png');
+.app {
+  background-image: url("../../images/Background.png");
   background-repeat: no-repeat;
-  background-size: contain;
-  height: 300px;
+  background-size: cover;
+}
+header {
+  position: relative;
+  width: 198px;
+  margin: 0 auto;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #22251d;
+    rotate: -4deg;
+  }
+  h1 {
+    font-family: "Zen Kurenaido", serif;
+    font-size: 37px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    position: relative;
+  }
+}
+main {
+  text-align: center;
+  h2 {
+    font-size: 40px;
+  }
+  p {
+    font-size: 36px;
+  }
+  .btn-group {
+    font-size: 32px;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      &:first-child {
+        rotate: -3deg;
+      }
+      &:nth-child(2) {
+        rotate: 6deg;
+        position: relative;
+        z-index: 1;
+      }
+      &:nth-child(4) {
+        rotate: -8deg;
+      }
+      &:nth-child(odd) {
+        background-color: #fff;
+        box-shadow: 5px 5px 0 0;
+      }
+      &:nth-child(even) {
+        background-color: #2a2b23;
+        box-shadow: 5px 5px 0 0 #fff;
+        color: #fff;
+      }
+      a {
+        width: 100%;
+      }
+    }
+  }
+}
+footer {
+  text-align: center;
 }

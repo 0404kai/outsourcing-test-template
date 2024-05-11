@@ -127,19 +127,20 @@ table {
   box-sizing: border-box;
 }
 body {
-  font-family: "Noto Sans TC", serif;
-  line-height: 1.5;
+  font-family: "Roboto", serif;
+  line-height: 1.2;
 }
 a {
   display: block;
   text-decoration: none;
-  color: #000;
+  color: inherit;
   transition: all 0.7s;
   &:hover {
     opacity: 0.7;
   }
 }
 img {
+  max-width: 100%;
   vertical-align: middle;
   object-fit: cover;
 }
